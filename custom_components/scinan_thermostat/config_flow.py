@@ -40,10 +40,6 @@ _LOGGER = logging.getLogger(__name__)
 class ScinanOptionsFlowHandler(config_entries.OptionsFlow):
     """Handle options flow for Scinan integration."""
 
-    def __init__(self, config_entry: ConfigEntry) -> None:
-        """Initialize options flow."""
-        self.config_entry = config_entry
-
     async def async_step_init(
         self, user_input=None
     ) -> FlowResult:
@@ -212,7 +208,7 @@ class ScinanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         config_entry: ConfigEntry,
     ) -> ScinanOptionsFlowHandler:
         """Get the options flow for this handler."""
-        return ScinanOptionsFlowHandler(config_entry)
+        return ScinanOptionsFlowHandler()
 
     #
     # Auth
